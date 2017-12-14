@@ -16,6 +16,7 @@
         <thead>
           <tr>
             <th>#</th>
+            <th>Category</th>
             <th>Name</th>
             <th>#</th>
           </tr>
@@ -24,6 +25,7 @@
           <% @restaurants.each do |restaurant| %>
           <tr>
             <th scope="row"><%= restaurant.id %></th>
+            <td>[<%= restaurant.category.name %>]</td>
             <td class="table-warning"><%= restaurant.name %></td>
             <td class="table-warning">
               <%= link_to 'Show', admin_restaurant_path(restaurant) %>
