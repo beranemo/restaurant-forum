@@ -25,7 +25,13 @@
           <% @restaurants.each do |restaurant| %>
           <tr>
             <th scope="row"><%= restaurant.id %></th>
+            
+            <% if restaurant.category != nil %>
             <td>[<%= restaurant.category.name %>]</td>
+            <% else %>
+            <td>[尚未有分類]</td>
+            <% end %>
+            
             <td class="table-warning"><%= restaurant.name %></td>
             <td class="table-warning">
               <%= link_to 'Show', admin_restaurant_path(restaurant) %>
