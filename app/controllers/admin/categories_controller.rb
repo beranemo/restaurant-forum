@@ -15,7 +15,7 @@ class Admin::CategoriesController < ApplicationController
       flash[:notice] = "category was successfully created"
       redirect_to admin_categories_path
     else
-      @categories = Categroy.all
+      @categories = Category.all
       render :index
     end
     
