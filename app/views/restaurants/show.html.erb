@@ -27,6 +27,21 @@
   </div>
   
   <div class="row">
+   
+    <div class="col-md-12">
+      <!-- 顯示與餐廳相關的評論 -->
+      <% @restaurant.comments.each do |comment| %>
+      <div>
+        <h4><%= comment.user.email %></h4>
+        <p><%= simple_format comment.content %></p>
+        <p class="text-muted">
+          <em><%= comment.created_at %> </em>
+        </p>
+      </div>
+      <hr>
+      <% end %>
+    </div>
+      
     <div class="col-md-12">
       <!-- 新增評論的表單輸入框 -->
       <%= form_for [@restaurant, @comment] do |f| %>
