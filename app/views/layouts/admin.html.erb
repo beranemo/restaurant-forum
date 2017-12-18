@@ -9,17 +9,31 @@
   </head>
 
   <body>
-    
+
     <%= render(partial: "shared/navbar", locals: { look: 'inverse' })%>
-      
+
     <%= render(partial: "shared/notice")%>
 
     <%= render(partial: "shared/alert")%>
-    
+
     <div class="container">
-      <%= yield %>
+
+
+      <div class="row">
+
+        <div class="col-md-3">
+          <%= render partial: 'shared/sidebar' %> 
+        </div>
+
+        <div class="col-md-9">
+          <%= yield %>
+        </div>
+
+      </div>              
+
+
     </div>
-    
-    
+
+
   </body>
 </html>
