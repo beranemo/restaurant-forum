@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-9">
 
     <% if @restaurant.errors.any? %>
       <h4>We have some errors here !</h4>
@@ -12,7 +13,7 @@
     <% end %>
 
     <%= form_for [:admin, @restaurant] do |f| %>
-      
+    <div class="form-row">  
       <div class="form-group">
         <%= f.label :category, "Category" %>
         <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: :true }, { class: "form-control"} %>
@@ -53,6 +54,7 @@
         <%= f.submit class: "btn btn-primary" %>
       </div>
     <% end %>
-
+    </div>
+    </div>
   </div>
 </div>
