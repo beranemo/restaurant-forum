@@ -11,11 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  */
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'style';
-@import "devise_bootstrap_views";
 
 body {
   background-image: url("pink_heart.jpeg")
