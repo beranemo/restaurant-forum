@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @comment = @restaurant.comments.build(comment_params)
     @comment.user_id = current_user.id
-    @comment.save!
+    @comment.save! # 與 @comment.save 作比較
     redirect_to restaurant_path(@restaurant)
   end
   
