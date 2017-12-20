@@ -20,3 +20,10 @@ body {
   background-color: #ffbf80;
 }
 
+.table > tbody > tr > td {
+     vertical-align: middle;
+}
+
+.table > tbody > tr > th {
+     vertical-align: middle;
+}
