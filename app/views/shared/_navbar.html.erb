@@ -22,6 +22,7 @@
           <% end %>
           <!-- end of 新增 Admin 後台 -->
           <li><p class="navbar-text">Hi, <%= current_user.email %></p></li>
+          <li><%= link_to "Profile", user_path(current_user) %></li>
           <li><%= link_to('登出', destroy_user_session_path, method: :delete) %></li>
           <li><%= link_to('修改密碼', edit_user_registration_path) %></li>
         <% else %>
