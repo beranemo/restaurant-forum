@@ -1,1 +1,18 @@
-this is user's show page
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag "http://via.placeholder.com/600x400", class: "img-responsive center-block img-rounded" %>
+    </div>
+    <div class="col-md-8">
+      <div class="form-row">  
+        <div class="form-group">
+          <h1>Dojo AC</h1>
+          <%= @user.email %>
+          <p>我是美食達人</p>
+          <button type="button" class="btn btn-primary">Primary</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
