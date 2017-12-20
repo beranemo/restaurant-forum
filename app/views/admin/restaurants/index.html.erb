@@ -38,9 +38,15 @@
             <% end %>
             
             <td class="table-warning">
-              <%= link_to 'Show', admin_restaurant_path(restaurant) %>
-              <%= link_to 'Edit', edit_admin_restaurant_path(restaurant) %>
-              <%= link_to 'Delete', admin_restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?"} %>
+              <%= link_to admin_restaurant_path(restaurant), class: "btn btn-success" do %>
+                <span class="glyphicon glyphicon-eye-open"> 內容</span>
+              <% end %>
+              <%= link_to edit_admin_restaurant_path(restaurant), class: "btn btn-info" do %>
+                  <span class="glyphicon glyphicon-edit"> 編輯</span>
+              <% end %>
+              <%= link_to admin_restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger" do %>
+                <span class="glyphicon glyphicon-trash"> 刪除</span>
+              <% end %>
             </td>
           </tr>
           <% end %>
