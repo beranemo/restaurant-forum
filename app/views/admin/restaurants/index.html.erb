@@ -38,14 +38,14 @@
             <% end %>
             
             <td>
-              <%= link_to admin_restaurant_path(restaurant), class: "btn btn-success btn-sm" do %>
-                <span class="glyphicon glyphicon-eye-open"> 內容</span>
+              <%= link_to admin_restaurant_path(restaurant), 'class' => "btn btn-success btn-sm", 'title' => '內容', 'data-toggle' => 'tooltip' do %>
+                <span class="glyphicon glyphicon-eye-open"></span>
               <% end %>
-              <%= link_to edit_admin_restaurant_path(restaurant), class: "btn btn-info btn-sm" do %>
-                  <span class="glyphicon glyphicon-edit"> 編輯</span>
+              <%= link_to edit_admin_restaurant_path(restaurant), class: "btn btn-info btn-sm", 'title' => '編輯', 'data-toggle' => 'tooltip' do %>
+                  <span class="glyphicon glyphicon-edit"></span>
               <% end %>
-              <%= link_to admin_restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" do %>
-                <span class="glyphicon glyphicon-trash"> 刪除</span>
+              <%= link_to admin_restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger btn-sm", 'title' => '刪除', 'data-toggle' => 'tooltip' do %>
+                <span class="glyphicon glyphicon-trash"></span>
               <% end %>
             </td>
           </tr>
@@ -61,3 +61,8 @@
 
   </div>
 </div>
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script> 
