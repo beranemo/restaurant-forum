@@ -21,6 +21,7 @@
           <tr>
             <th>#</th>
             <th>餐廳名稱</th>
+            <th>人氣</th>
             <th>類別</th>
             <th>功能</th>
           </tr>
@@ -29,15 +30,17 @@
           <% @restaurants.each do |restaurant| %>
           <tr>
             <th scope="row"><%= restaurant.id %></th>
-            <td class="table-warning"><%= restaurant.name %></td>
+            <td class="col-md-3"><%= restaurant.name %></td>
+            
+            <td class="col-md-2"><%= restaurant.impressionist_count %></td>
             
             <% if restaurant.category != nil %>
-            <td>[<%= restaurant.category.name %>]</td>
+            <td class="col-md-3">[<%= restaurant.category.name %>]</td>
             <% else %>
-            <td>[尚未有分類]</td>
+            <td class="col-md-3">[尚未有分類]</td>
             <% end %>
             
-            <td>
+            <td class="col-md-4">
               <%= link_to admin_restaurant_path(restaurant), 'class' => "btn btn-success btn-sm", 'title' => '內容', 'data-toggle' => 'tooltip' do %>
                 <span class="glyphicon glyphicon-eye-open"></span>
               <% end %>
