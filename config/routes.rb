@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   root 'restaurants#index'
   
-  namespace :admin do
+  namespace :admin, path: "c7edcc" do
     resources :restaurants
     resources :categories
     root 'restaurants#index'
