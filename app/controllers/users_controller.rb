@@ -7,6 +7,11 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    
+    unless @user.id == current_user.id
+      flash[:notice] = "你沒有權限";
+      redirect_to user_path(@user)
+    end
   end
   
   def update
