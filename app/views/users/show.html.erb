@@ -28,9 +28,21 @@
       </h4>
     </div>
     <div class="panel-body">
-      餐廳在這
-      <p>232</p>
-      <p>jfdkjfl</p>
+      <% @commented_restaurants.each do |restaurant| %>      
+        <%= link_to restaurant_path(restaurant.id) do %>
+        <div class="my-restaurant">     
+          <% if restaurant.image? %>
+            <div>
+              <%= image_tag restaurant.image %>
+            </div>
+          <% else %>
+            <%= image_tag "http://via.placeholder.com/100x80" %>
+          <% end %>   
+          <p><%= restaurant.name %></p>
+          <br />
+        </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
