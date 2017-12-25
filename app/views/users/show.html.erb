@@ -2,15 +2,15 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <%= image_tag "http://via.placeholder.com/600x400", class: "img-responsive center-block img-rounded" %>
+      <%= image_tag @user.avatar, class: "img-responsive center-block img-rounded avatar" %>
     </div>
     <div class="col-md-8">
       <div class="form-row">  
         <div class="form-group">
           <h1>Dojo AC</h1>
-          <%= @user.email %>
-          <p>我是美食達人</p>
-          <button type="button" class="btn btn-primary">Primary</button>
+          <p><%= @user.name %></p>
+          <h4><%= @user.intro %></h4>
+          <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary" %>
         </div>
       </div>
     </div>
