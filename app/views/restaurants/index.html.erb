@@ -1,5 +1,16 @@
 <div class="container">
   <div class="row">
+  
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <%= link_to '首頁', root_path %>
+      </li>
+      <li>
+        <%= link_to '最新動態', feeds_restaurants_path %>
+      </li>
+    </ul>
+    
+    <br />
    
     <%= render(partial: "shared/nav") %>
     

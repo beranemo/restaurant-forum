@@ -41,3 +41,21 @@ body {
 .my-restaurant img{
   width: 100px;
 }
+
+.tab-content{
+    background-color:#ffbf80;
+    color:#fff;
+    padding:5px
+}
+.nav-tabs > li > a{
+  background-color: #ffbf80 !important;
+  border: medium none;
+  border-radius: 0;
+  color:#fff;
+}
+.nav-tabs > li > a:hover{
+  background-color: #ffd480 !important;
+  border: medium none;
+  border-radius: 0;
+  color:#fff;
+}
