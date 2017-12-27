@@ -10,5 +10,8 @@ class Restaurant < ApplicationRecord
   belongs_to :category, optional: true # 允許外鍵 nil
   
   has_many :comments, dependent: :destroy
+  
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_users, through: :favorites, source: :user
 
 end
