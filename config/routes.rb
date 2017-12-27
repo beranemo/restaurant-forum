@@ -16,6 +16,12 @@ Rails.application.routes.draw do
       get :dashboard
     end
     
+    # 喜翻，及森77的
+    member do
+      post :favorite
+      post :unfavorite
+    end
+    
   end
   resources :categories, only: [:show]
   
