@@ -21,13 +21,8 @@
       <hr>
       <%= link_to "Dashboard", dashboard_restaurant_path(@restaurant), class: "btn btn-primary" %>
       
-      <% if @restaurant.is_favorited?(current_user) %>
-        <%= link_to "森77", unfavorite_restaurant_path(@restaurant), class: "btn btn-info btn-sm", method: :post,data: { confirm: "確定對這家餐廳森77?"} %>
-      <% else %>
-        <%= link_to "喜翻", favorite_restaurant_path(@restaurant), class: "btn btn-primary", method: :post %>
-      <% end %>
-      
-      
+      <%= render partial: "shared/favorite", locals: {restaurant: @restaurant} %>
+            
     </div>
 
     <div class="clearfix"></div>

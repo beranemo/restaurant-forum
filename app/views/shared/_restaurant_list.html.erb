@@ -36,6 +36,7 @@
           <% end %>
         </span>
         <p><%= truncate(restaurant.description, length: 80) %></p>
+        <p><%= render partial: "shared/favorite", locals: {restaurant: restaurant} %></p>
       </div>
     </div>
   </div>
