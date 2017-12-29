@@ -32,7 +32,8 @@ class User < ApplicationRecord
   
   mount_uploader :avatar, AvatarUploader
   
-  has_many :favorites, dependent: :destroy 
+  # 使用者有很多收藏的餐廳的多對多關聯
+  has_many :favorites, dependent: :destroy # 當 User 物件被刪件，相關的 Favorite 物件會一併刪除
   has_many :favorited_restaurants, through: :favorites, source: :restaurant
 
   

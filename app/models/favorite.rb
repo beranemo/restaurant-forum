@@ -10,6 +10,9 @@
 #
 
 class Favorite < ApplicationRecord
+  
+  # 收藏記錄：它屬於使用者，也屬於餐廳
   belongs_to :user
   belongs_to :restaurant
+  
 end

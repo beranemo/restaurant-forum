@@ -27,6 +27,7 @@ class Restaurant < ApplicationRecord
   
   has_many :comments, dependent: :destroy
   
+  # 餐廳有很多使用者來收藏它
   has_many :favorites, dependent: :destroy
   has_many :favorited_users, through: :favorites, source: :user
   
