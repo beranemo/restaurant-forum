@@ -33,6 +33,10 @@ class RestaurantsController < ApplicationController
     restaurant = Restaurant.find(params[:id])
     favorite = Favorite.find_by("restaurant_id" => restaurant.id, "user_id" => current_user.id)
     favorite.destroy
+    
+    # 下面這樣寫法也是可以的
+    # favorite = Favorite.where(restaurant: @restaurant, user: current_user)
+    # favorite.destroy_all
     redirect_back(fallback_location: root_path)  # 導回上一頁
   end
   

@@ -10,14 +10,13 @@ Rails.application.routes.draw do
     collection do
       get :feeds
     end
-    
-    # 喜翻，及森77的
 
     # 瀏覽個別餐廳的 Dashboard
     member do
       get :dashboard
     end
     
+    # 收藏、取消收藏
     member do
       post :favorite
       post :unfavorite
