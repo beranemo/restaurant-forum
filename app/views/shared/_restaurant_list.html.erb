@@ -36,14 +36,15 @@
           <% end %>
         </span>
         <p><%= truncate(restaurant.description, length: 80) %></p>
-        <p><%= render partial: "shared/favorite", locals: {restaurant: restaurant} %></p>
+        <span><%= render partial: "shared/favorite", locals: {restaurant: restaurant} %></span> 
         
+        <span>
         <% if restaurant.is_liked?(current_user) %>
           <%= link_to "收回喜翻", restaurant_like_path(restaurant, current_user.liked_restaurants.first.id), class: "btn btn-danger", method: :delete, data: { confirm: "確定對這家餐廳森77?"}  %>
         <% else %>
           <%= link_to "喜翻", restaurant_likes_path(restaurant), class: "btn btn-danger", method: :post %>
         <% end %>
-        
+        </span>
         
       </div>
     </div>
