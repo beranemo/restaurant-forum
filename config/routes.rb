@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     
     resources :comments, only: [:create, :destroy]
     
+    # 喜翻、收回喜翻
+    resources :likes, only: [:create, :destroy]
+    
     # 瀏覽所有餐廳的最近動態
     collection do
       get :feeds
