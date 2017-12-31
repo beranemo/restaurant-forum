@@ -22,6 +22,8 @@
             <th>#</th>
             <th>餐廳名稱</th>
             <th>瀏覽次數</th>
+            <th>收藏人數</th>
+            <th>喜歡人數</th>
             <th>類別</th>
             <th>功能</th>
           </tr>
@@ -29,18 +31,23 @@
         <tbody>
           <% @restaurants.each do |restaurant| %>
           <tr>
-            <th scope="row"><%= restaurant.id %></th>
-            <td class="col-md-3"><%= restaurant.name %></td>
+            <th scope="row" class="col-md-1"><%= restaurant.id %></th>
             
-            <td class="col-md-2"><%= restaurant.impressionist_count %></td>
+            <td class="col-md-2"><%= restaurant.name %></td>
+            
+            <td class="col-md-1"><%= restaurant.impressionist_count %></td>
+            
+            <td class="col-md-1"><%= restaurant.favorited_users.count %></td>
+            
+            <td class="col-md-1"><%= restaurant.liked_users.count %></td>
             
             <% if restaurant.category != nil %>
-            <td class="col-md-3">[<%= restaurant.category.name %>]</td>
+            <td class="col-md-2">[<%= restaurant.category.name %>]</td>
             <% else %>
-            <td class="col-md-3">[尚未有分類]</td>
+            <td class="col-md-2">[尚未有分類]</td>
             <% end %>
             
-            <td class="col-md-4">
+            <td class="col-md-3">
               <%= link_to admin_restaurant_path(restaurant), 'class' => "btn btn-success btn-sm", 'title' => '內容', 'data-toggle' => 'tooltip' do %>
                 <span class="glyphicon glyphicon-eye-open"></span>
               <% end %>
