@@ -39,7 +39,9 @@ class User < ApplicationRecord
   # 使用者有很多喜翻的餐廳的多對多關聯
   has_many :likes, dependent: :destroy # 當 User 物件被刪件，相關的 Favorite 物件會一併刪除
   has_many :liked_restaurants, through: :likes, source: :restaurant
-
+  
+  has_many :followships, dependent: :destroy
+  has_many :followings, through: :followships
   
   def admin?
     self.role == 'admin'
