@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     
     resources :comments, only: [:create, :destroy]
     
-    # 喜翻、收回喜翻
+    # 喜翻／收回喜翻
     resources :likes, only: [:create, :destroy]
     
     # 瀏覽所有餐廳的最近動態
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       get :dashboard
     end
     
-    # 收藏、取消收藏
+    # 收藏／取消收藏
     member do
       post :favorite
       post :unfavorite
@@ -28,7 +28,10 @@ Rails.application.routes.draw do
   end
   resources :categories, only: [:show]
   
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update, :index]
+  
+  # 追蹤／取消追蹤
+  resources :followships, only: [:create, :destroy]
 
   root 'restaurants#index'
   
