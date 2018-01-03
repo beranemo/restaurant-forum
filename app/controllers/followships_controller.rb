@@ -12,4 +12,11 @@ class FollowshipsController < ApplicationController
     end
   end
   
+  def destroy
+    @followship = current_user.followships.find_by(following_id: params[:id])
+    @followship.destroy
+    flash[:notice] = "追蹤已取消"
+    redirect_back(fallback_location: root_path)  # 導回上一頁
+  end
+  
 end
