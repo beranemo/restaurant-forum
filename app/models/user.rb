@@ -43,12 +43,20 @@ class User < ApplicationRecord
   has_many :followships, dependent: :destroy
   has_many :followings, through: :followships
   
+  before_save :initialize_name
+  
   def admin?
     self.role == 'admin'
   end
   
   def following?(user)
     self.followings.include?(user)
+  end
+  
+  def initialize_name
+    if self.name == '' || self.name == nil
+      self.name = self.email.split('@').first
+    end
   end
   
 end
