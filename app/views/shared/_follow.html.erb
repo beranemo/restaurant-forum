@@ -1,7 +1,6 @@
 <% users.each do |user| %>
-  <div class="col-md-3 col-sm-4 col-xs-6 text-center user-item">
   <% if user != current_user %>
-
+    <div class="col-md-3 col-sm-4 col-xs-6 text-center user-item">
      <%= link_to user_path(user) do %>
         <!-- 可先利用 Placeholder 如 <img src="http://via.placeholder.com/128x128"> 產生圖片 -->
         <img src="http://via.placeholder.com/128x128">
@@ -17,11 +16,11 @@
 
       
       <% if current_user.following?(user) %>
-        <%= link_to '取消追蹤', followship_path(user), method: :delete %>
+        <%= link_to '取消追蹤', followship_path(user), method: :delete,class: "btn btn-link" %>
       <% else %>
         <!-- 會用 POST 動作導向 http://localhost:3000/followships?following_id={user.id} -->
-        <%= link_to '追蹤', followships_path(following_id: user), method: :post %>
+        <%= link_to '追蹤', followships_path(following_id: user), method: :post,class: "btn btn-primary" %>
       <% end %>  
+    </div>
   <% end %>
-  </div>
 <% end %>
