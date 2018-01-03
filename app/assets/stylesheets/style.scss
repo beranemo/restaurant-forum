@@ -22,8 +22,16 @@
   float: none;
   display: inline-block;
 }
+
 .panel-body {
   background: #ffdab3;
 }
 
+.user-item {
+  margin-bottom: 15px;
+}
 
+.user-item img {
+  width: 128px;
+  height: 128px;
+}
