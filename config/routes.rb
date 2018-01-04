@@ -22,10 +22,13 @@ Rails.application.routes.draw do
       get :dashboard
     end
     
-    # 收藏／取消收藏
     member do
+      # 收藏／取消收藏
       post :favorite
       post :unfavorite
+      
+      # 瀏覽所有收藏者
+      get :favorites
     end
     
   end

@@ -46,4 +46,9 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.order(favorites_count: :desc).limit(10)
   end
   
+  def favorites
+    @restaurant = Restaurant.find(params[:id])
+    @favorites = @restaurant.favorites
+  end
+  
 end

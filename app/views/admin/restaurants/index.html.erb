@@ -37,7 +37,11 @@
             
             <td class="col-md-1"><%= restaurant.impressionist_count %></td>
             
-            <td class="col-md-1"><%= restaurant.favorited_users.count %></td>
+            <td class="col-md-1">
+            <%= link_to favorites_restaurant_path(restaurant) do %>
+              <%= restaurant.favorited_users.count %>
+            <% end %>
+            </td>
             
             <td class="col-md-1"><%= restaurant.liked_users.count %></td>
             

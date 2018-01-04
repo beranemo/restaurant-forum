@@ -4,7 +4,7 @@
      <%= link_to user_path(user) do %>
         <!-- 可先利用 Placeholder 如 <img src="http://via.placeholder.com/128x128"> 產生圖片 -->
         <img src="http://via.placeholder.com/128x128">
-<!--          <%= image_tag(user.avatar, class: "img-rounded") %>-->
+        <!-- <%= image_tag(user.avatar, class: "img-rounded") %>-->
       <h4>
         <% if !user.name %>
           <%=  user.name = user.email.split('@').first %>
