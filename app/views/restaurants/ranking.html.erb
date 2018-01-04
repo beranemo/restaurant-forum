@@ -29,7 +29,31 @@
         <div class="ranking-item">
           <div class="col-md-3">
             <%= link_to restaurant_path(restaurant) do %>
-              <%= image_tag restaurant.image, class: "img-responsive center-block" %>
+             
+              <% if restaurant.image? %>
+                <%= image_tag restaurant.image, class: "img-responsive center-block" %>
+              <% else %>
+
+                <% x =  rand(6) %>
+                <% if x == 0 %>
+                  <%= image_tag "https://i.imgur.com/eZtNIiR.jpg", class: "img-responsive center-block img-rounded"  %>
+                <% elsif x == 1 %>
+                  <%= image_tag "https://i.imgur.com/0gE7uAS.jpg", class: "img-responsive center-block img-rounded"  %>
+                <% elsif x == 2 %>
+                  <%= image_tag "https://i.imgur.com/eNBWOa8.jpg", class: "img-responsive center-block img-rounded"  %>
+                <% elsif x == 3 %>
+                  <%= image_tag "https://i.imgur.com/WzQrFB2.jpg", class: "img-responsive center-block img-rounded"  %>
+                <% elsif x == 4 %>
+                  <%= image_tag "https://i.imgur.com/0tjHOrG.jpg", class: "img-responsive center-block img-rounded"  %> 
+                <% else%>
+                  <%= image_tag "https://i.imgur.com/bJSckSZ.jpg", class: "img-responsive center-block img-rounded"  %>
+                <% end %>
+
+              <!--
+               image_tag "http://via.placeholder.com/338x180", class: "img-responsive center-block img-rounded" %>
+              -->
+              <% end %>
+              
             <% end %>
           </div>
           <div class="col-md-9">
