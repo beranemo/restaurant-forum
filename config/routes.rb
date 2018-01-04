@@ -9,9 +9,12 @@ Rails.application.routes.draw do
     # 喜翻／收回喜翻
     resources :likes, only: [:create, :destroy]
     
-    # 瀏覽所有餐廳的最近動態
     collection do
+      # 瀏覽所有餐廳的最近動態
       get :feeds
+      
+      # TOP 10 餐廳
+      get :ranking
     end
 
     # 瀏覽個別餐廳的 Dashboard
