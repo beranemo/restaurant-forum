@@ -26,9 +26,6 @@ Rails.application.routes.draw do
       # 收藏／取消收藏
       post :favorite
       post :unfavorite
-      
-      # 瀏覽所有收藏者
-      get :favorites
     end
     
   end
@@ -42,7 +39,10 @@ Rails.application.routes.draw do
   root 'restaurants#index'
   
   namespace :admin, path: "c7edcc" do
-    resources :restaurants
+    resources :restaurants do
+      # 瀏覽所有收藏者
+      get :favorites
+    end  
     resources :categories
     root 'restaurants#index'
   end

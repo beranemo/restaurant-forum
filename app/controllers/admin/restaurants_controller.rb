@@ -42,13 +42,18 @@ class Admin::RestaurantsController < Admin::BaseController
     redirect_to admin_restaurants_path
     flash[:alert] = "restaurant was delete"
   end
-
+  
+  def favorites
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @favorites = @restaurant.favorites
+  end
+  
   private
-
+  
   def set_restaurant
     @restaurant = Restaurant.find(params[:id])
   end
-
+  
   def restaurant_params
     params.
       require(:restaurant).
