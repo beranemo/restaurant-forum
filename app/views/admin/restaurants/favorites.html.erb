@@ -6,8 +6,20 @@
     <% @favorites.each do |favorite| %> 
       <div class="col-md-3 col-sm-3 col-xs-3 text-center user-item">
           <!-- 可先利用 Placeholder 如 <img src="http://via.placeholder.com/128x128"> 產生圖片 -->
-          <img src="http://via.placeholder.com/128x128">
+          <!--  <img src="http://via.placeholder.com/128x128"> -->
           <!-- <%= image_tag(favorite.user.avatar, class: "img-rounded") %>-->
+        
+          <% if favorite.user.avatar? %>
+            <%= image_tag(favorite.user.avatar, class: "img-rounded") %>
+          <% else %>
+            <% if rand(2) == 0 %>
+              <%= image_tag "https://i.imgur.com/vdaV4wT.png", class: "img-rounded"  %>
+            <% else %>
+              <%= image_tag "https://i.imgur.com/UEh3HOm.png", class: "img-rounded"  %>
+            <% end %>  
+          <% end %> 
+            
+          
         <h4>
           <% if !favorite.user.name %>
             <%=  favorite.user.name = favorite.user.email.split('@').first %>

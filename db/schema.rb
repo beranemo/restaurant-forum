@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180104144654) do
+ActiveRecord::Schema.define(version: 20180106045323) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -71,6 +71,19 @@ ActiveRecord::Schema.define(version: 20180104144654) do
     t.integer "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "repos", force: :cascade do |t|
+    t.string "site_name"
+    t.string "site_url"
+    t.string "github_name"
+    t.string "github_url"
+    t.string "account"
+    t.string "password"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "sort"
   end
 
   create_table "restaurants", force: :cascade do |t|
