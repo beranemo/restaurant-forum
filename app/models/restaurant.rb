@@ -37,6 +37,8 @@ class Restaurant < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
   
+  default_scope { order(created_at: :desc) }
+  
   def is_favorited?(user)
     self.favorited_users.include?(user)
   end
@@ -49,5 +51,5 @@ class Restaurant < ApplicationRecord
     self.favorites_count = self.favorites.size
     self.save
   end
-  
+    
 end
