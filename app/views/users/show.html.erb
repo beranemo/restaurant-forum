@@ -55,8 +55,24 @@
       <% @followings.each do |following| %>
       <li class="list-group-item">
         <%= link_to user_path(following) do %>
-        <%= image_tag(following.avatar, height: 30, width: 30, class: "img-circle") %>
-        <%= following.name %>
+        
+          <% if following.avatar? %>
+            <%= image_tag(following.avatar, height: 30, width: 30, class: "img-circle") %>
+          <% else %>
+            <% x =  rand(2) %>
+            <% if x == 0 %>
+              <%= image_tag "https://i.imgur.com/vdaV4wT.png", height: 30, width: 30, class: "img-circle" %>
+            <% else %>
+              <%= image_tag "https://i.imgur.com/UEh3HOm.png", height: 30, width: 30, class: "img-circle" %>
+            <% end %>  
+          <% end %> 
+
+          <% if following.name? %>
+            <%= following.name %>
+          <% else %>
+            <%= following.email.split("@").first %>
+          <% end %> 
+        
         <% end %>
       </li>
       <% end %>
@@ -75,8 +91,24 @@
       <% @followers.each do |follower| %>
       <li class="list-group-item">
         <%= link_to user_path(follower) do %>
-        <%= image_tag(follower.avatar, height: 30, width: 30, class: "img-circle") %>
-        <%= follower.name %>
+        
+          <% if follower.avatar? %>
+            <%= image_tag(follower.avatar, height: 30, width: 30, class: "img-circle") %>
+          <% else %>
+            <% x =  rand(2) %>
+            <% if x == 0 %>
+              <%= image_tag "https://i.imgur.com/vdaV4wT.png", height: 30, width: 30, class: "img-circle" %>
+            <% else %>
+              <%= image_tag "https://i.imgur.com/UEh3HOm.png", height: 30, width: 30, class: "img-circle" %>
+            <% end %>  
+          <% end %>  
+
+          <% if follower.name? %>
+            <%= follower.name %>
+          <% else %>
+            <%= follower.email.split("@").first %>
+          <% end %>
+        
         <% end %>
       </li>
       <% end %>
