@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       # TOP 10 餐廳
       get :ranking
     end
-
+    
     # 瀏覽個別餐廳的 Dashboard
     member do
       get :dashboard
