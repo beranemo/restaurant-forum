@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       # 收藏／取消收藏
       post :favorite
       post :unfavorite
+      delete :unfavorite2
     end
     
     # 喜翻／收回喜翻
