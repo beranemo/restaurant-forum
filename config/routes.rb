@@ -6,9 +6,6 @@ Rails.application.routes.draw do
     
     resources :comments, only: [:create, :destroy]
     
-    # 喜翻／收回喜翻
-    resources :likes, only: [:create, :destroy]
-    
     collection do
       # 瀏覽所有餐廳的最近動態
       get :feeds
@@ -22,11 +19,17 @@ Rails.application.routes.draw do
       get :dashboard
     end
     
+    # 比較[收藏／取消收藏]、[喜翻／收回喜翻]這兩種不同的寫法
+    
     member do
       # 收藏／取消收藏
       post :favorite
       post :unfavorite
     end
+    
+    # 喜翻／收回喜翻
+    resources :likes, only: [:create, :destroy]
+    # 上面的這個寫法其實就是跟 comment 一樣的東西
     
   end
   resources :categories, only: [:show]

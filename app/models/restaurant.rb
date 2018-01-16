@@ -29,10 +29,9 @@ class Restaurant < ApplicationRecord
   has_many :comments, dependent: :destroy
   
   # 餐廳有很多使用者來收藏它
-  has_many :favorites, dependent: :destroy
+  has_many :favorites, dependent: :destroy # :destroy 當 User 物件被刪除時，相關的 Favorite 物件會一併被刪除
   has_many :favorited_users, through: :favorites, source: :user
-  
-  
+   
   # 餐廳有很多使用者喜翻
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
