@@ -34,7 +34,10 @@
       <% else %>
         <!-- 會用 POST 動作導向 http://localhost:3000/followships?following_id={user.id} -->
         <%= link_to '追蹤', followships_path(following_id: user), method: :post,class: "btn btn-primary" %>
-      <% end %>  
+      <% end %>
+      
+      <%= link_to '加為好友', friendships_path(friend_id: user), method: :post,class: "btn btn-primary" %>
+      
     </div>
   <% end %>
 <% end %>
