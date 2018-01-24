@@ -1,6 +1,6 @@
 <% if restaurant.is_favorited?(current_user) %>
- <%= link_to "取消收藏1", unfavorite_restaurant_path(restaurant), class: "btn btn-info", method: :post, data: { confirm: "確定不要人家了喔 T_T?"} %>
+ <%= link_to "取消收藏1", unfavorite_restaurant_path(restaurant), class: "btn btn-info", method: :post, data: { confirm: "確定不要人家了喔 T_T?" } %>
   <%= link_to "取消收藏", unfavorite2_restaurant_path(restaurant), class: "btn btn-info", method: :delete, data: { confirm: "確定不要人家了喔 T_T?"} %>
 <% else %>
-  <%= link_to "收藏", favorite_restaurant_path(restaurant), class: "btn btn-info", method: :post %>
+  <%= link_to "收藏", favorite_restaurant_path(restaurant), class: "btn btn-info", method: :post, data: { disable_with: "Waiting...."} %>
 <% end %>
