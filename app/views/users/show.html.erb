@@ -31,6 +31,11 @@
           <% if @user.id == current_user.id %>
             <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary" %>
           <% end %>
+          
+          <% if @user.friend?(current_user) %>
+            <%= link_to '取消好友關係', friendship_path(@user), method: :delete, class: "btn btn-danger" %>
+          <% end %>
+       
         </div>
       </div>
     </div>

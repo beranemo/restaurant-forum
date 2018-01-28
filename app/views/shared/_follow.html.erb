@@ -30,16 +30,18 @@
       
       
       <% if current_user.following?(user) %>
-        <%= link_to '取消追蹤', followship_path(user), method: :delete, class: "btn btn-link" %>
+        <%= link_to '取消追蹤', followship_path(user), method: :delete, class: "btn btn-danger" %>
       <% else %>
         <!-- 會用 POST 動作導向 http://localhost:3000/followships?following_id={user.id} -->
         <%= link_to '追蹤', followships_path(following_id: user), method: :post,class: "btn btn-primary" %>
       <% end %>
       
       <% if current_user.friend?(user) %>
-        <%= link_to '取消邀請', friendship_path(user), method: :delete, class: "btn btn-link" %>
-      <% else %>
-        <%= link_to '加為好友', friendships_path(friend_id: user), method: :post,class: "btn btn-primary" %>
+        <%= link_to '解除好友關係', friendship_path(user), method: :delete, class: "btn btn-danger" %>
+      <% elsif current_user.request_friend?(user) %>
+        <%= link_to '交友邀請已送出', friendship_path(user), method: :delete, class: "btn btn-success" %>
+      <% else %>  
+        <%= link_to '加朋友', friendships_path(friend_id: user), method: :post,class: "btn btn-primary" %>
       <% end %>
     </div>
   <% end %>

@@ -68,6 +68,10 @@ class User < ApplicationRecord
   end
   
   def friend?(user)
+    self.friends.include?(user) & self.want2yous.include?(user)
+  end
+  
+  def request_friend?(user)
     self.friends.include?(user)
   end
   
