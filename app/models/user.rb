@@ -40,12 +40,17 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy # 當 User 物件被刪件，相關的 Favorite 物件會一併刪除
   has_many :liked_restaurants, through: :likes, source: :restaurant
   
+  # 使用者有很多追蹝記錄，也有很多他自己正在追蹤的人
   has_many :followships, dependent: :destroy
   has_many :followings, through: :followships
   
   # 使用者有很多追蹤自己的人
   has_many :inverse_followships, class_name: "Followship", foreign_key: "following_id"
   has_many :followers, through: :inverse_followships, source: :user
+  
+  # 交友邀請相關功能
+  has_many :friendships
+  has_many :friendings, through: :friendships
   
   
   before_save :initialize_name
