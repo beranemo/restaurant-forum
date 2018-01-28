@@ -36,9 +36,7 @@
         <%= link_to '追蹤', followships_path(following_id: user), method: :post,class: "btn btn-primary" %>
       <% end %>
       
-      <!--
-      <%#= link_to '加為好友', friendships_path(friend_id: user), method: :post,class: "btn btn-primary" %>
-      -->
+      <%= link_to '加為好友', friendships_path(friend_id: user), method: :post,class: "btn btn-primary" %>
       
     </div>
   <% end %>
