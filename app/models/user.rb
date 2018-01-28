@@ -50,7 +50,7 @@ class User < ApplicationRecord
   
   # 交友邀請相關功能
   has_many :friendships
-  has_many :friendings, through: :friendships
+  has_many :friends, through: :friendships
   
   
   before_save :initialize_name
