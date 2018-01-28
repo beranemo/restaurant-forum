@@ -32,10 +32,15 @@
             <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary" %>
           <% end %>
           
-          <% if @user.friend?(current_user) %>
+          <% if current_user.friend?(@user) %>
             <%= link_to '取消好友關係', friendship_path(@user), method: :delete, class: "btn btn-danger" %>
+          <% elsif current_user.want_to_you?(@user) %>  
+            <%= link_to '拒絕好友邀請', reject_friendship_path(@user), method: :delete, class: "btn btn-warning" %>
+            <%= link_to '接受好友邀請', accept_friendship_path(@user), method: :post, class: "btn btn-success" %>
+          <% elsif current_user.request_friend?(@user) %>
+            <%= link_to '取消邀請', friendship_path(@user), method: :delete, class: "btn btn-danger" %>
           <% end %>
-       
+          
         </div>
       </div>
     </div>

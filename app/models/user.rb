@@ -75,6 +75,10 @@ class User < ApplicationRecord
     self.friends.include?(user)
   end
   
+  def want_to_you?(user)
+    self.want2yous.include?(user)
+  end
+  
   def initialize_name
     if self.name == '' || self.name == nil
       self.name = self.email.split('@').first

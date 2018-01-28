@@ -41,7 +41,16 @@ Rails.application.routes.draw do
   resources :followships, only: [:create, :destroy]
   
   # 好友邀請／取消邀請
-  resources :friendships, only: [:create, :destroy]
+  resources :friendships, only: [:create, :destroy] do
+    
+    member do
+      # 接受好友邀請
+      post :accept
+      # 拒絕好友邀請
+      delete :reject
+    end
+    
+  end
   
   root 'restaurants#index'
   
