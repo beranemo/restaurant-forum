@@ -10,6 +10,15 @@ class UsersController < ApplicationController
     @favorited_restaurants = @user.favorited_restaurants
     @followings = @user.followings
     @followers = @user.followers
+    
+    # 送出好友邀請，想要他成為好友
+    @wanted_friends = @user.friends - @user.want2yous
+    
+    # 想要你的人
+    @want2yous = @user.want2yous - @user.friends
+    
+    # 互相為好友的人
+    @befrinds = @user.want2yous & @user.friends
   end
   
   def edit

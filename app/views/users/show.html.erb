@@ -102,7 +102,7 @@
               <%= image_tag "https://i.imgur.com/UEh3HOm.png", height: 30, width: 30, class: "img-circle" %>
             <% end %>  
           <% end %>  
-
+          
           <% if follower.name? %>
             <%= follower.name %>
           <% else %>
@@ -115,6 +115,120 @@
     </ul>
     
   </div>
+  
+  
+  
+  <!-- 只有自己才能看見自己的好友以及送出好友邀請給誰 -->
+  <% if @user.id == current_user.id %>
+  
+  <!-- 顯示互為好友的清單，panel包一個list-group  -->    
+  <div class="panel panel-warning">
+   
+    <div class="panel-heading">
+      <h3 class="panel-title">你有 <strong><%= @befrinds.count %></strong> 個好友</h3>
+    </div>
+    
+    <ul class="list-group">
+      <% @befrinds.each do |befrind| %>
+      <li class="list-group-item">
+        <%= link_to user_path(befrind) do %>
+        
+          <% if befrind.avatar? %>
+            <%= image_tag(befrind.avatar, height: 30, width: 30, class: "img-circle") %>
+          <% else %>
+            <% x =  rand(2) %>
+            <% if x == 0 %>
+              <%= image_tag "https://i.imgur.com/vdaV4wT.png", height: 30, width: 30, class: "img-circle" %>
+            <% else %>
+              <%= image_tag "https://i.imgur.com/UEh3HOm.png", height: 30, width: 30, class: "img-circle" %>
+            <% end %>  
+          <% end %>  
+          
+          <% if befrind.name? %>
+            <%= befrind.name %>
+          <% else %>
+            <%= befrind.email.split("@").first %>
+          <% end %>
+        
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+    
+  </div> 
+  
+  <!-- 顯示送出好友邀請的清單，panel包一個list-group  -->  
+  <div class="panel panel-warning">
+   
+    <div class="panel-heading">
+      <h3 class="panel-title">你送出了 <strong><%= @wanted_friends.count %></strong> 個好友邀請</h3>
+    </div>
+    
+    <ul class="list-group">
+      <% @wanted_friends.each do |wanted_friend| %>
+      <li class="list-group-item">
+        <%= link_to user_path(wanted_friend) do %>
+        
+          <% if wanted_friend.avatar? %>
+            <%= image_tag(wanted_friend.avatar, height: 30, width: 30, class: "img-circle") %>
+          <% else %>
+            <% x =  rand(2) %>
+            <% if x == 0 %>
+              <%= image_tag "https://i.imgur.com/vdaV4wT.png", height: 30, width: 30, class: "img-circle" %>
+            <% else %>
+              <%= image_tag "https://i.imgur.com/UEh3HOm.png", height: 30, width: 30, class: "img-circle" %>
+            <% end %>  
+          <% end %>  
+          
+          <% if wanted_friend.name? %>
+            <%= wanted_friend.name %>
+          <% else %>
+            <%= wanted_friend.email.split("@").first %>
+          <% end %>
+        
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+    
+  </div> 
+  
+  <!-- 對你發出好友邀請的清單，panel包一個list-group  -->  
+  <div class="panel panel-warning">
+   
+    <div class="panel-heading">
+      <h3 class="panel-title">有 <strong><%= @want2yous.count %></strong> 個好友邀請</h3>
+    </div>
+    
+    <ul class="list-group">
+      <% @want2yous.each do |want2you| %>
+      <li class="list-group-item">
+        <%= link_to user_path(want2you) do %>
+        
+          <% if want2you.avatar? %>
+            <%= image_tag(want2you.avatar, height: 30, width: 30, class: "img-circle") %>
+          <% else %>
+            <% x =  rand(2) %>
+            <% if x == 0 %>
+              <%= image_tag "https://i.imgur.com/vdaV4wT.png", height: 30, width: 30, class: "img-circle" %>
+            <% else %>
+              <%= image_tag "https://i.imgur.com/UEh3HOm.png", height: 30, width: 30, class: "img-circle" %>
+            <% end %>  
+          <% end %>  
+          
+          <% if want2you.name? %>
+            <%= want2you.name %>
+          <% else %>
+            <%= want2you.email.split("@").first %>
+          <% end %>
+        
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+    
+  </div>
+  <% end %>
   
 </div>
 

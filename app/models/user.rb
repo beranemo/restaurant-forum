@@ -52,6 +52,10 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :friends, through: :friendships
   
+  # 對我發出好友邀請的人
+  has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
+  has_many :want2yous, through: :inverse_friendships, source: :user
+  
   
   before_save :initialize_name
   
@@ -61,6 +65,10 @@ class User < ApplicationRecord
   
   def following?(user)
     self.followings.include?(user)
+  end
+  
+  def friend?(user)
+    self.friends.include?(user)
   end
   
   def initialize_name
