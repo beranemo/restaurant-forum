@@ -39,7 +39,10 @@ Rails.application.routes.draw do
   
   # 追蹤／取消追蹤
   resources :followships, only: [:create, :destroy]
-
+  
+  # 好友邀請／取消邀請
+  resources :followships, only: [:create, :destroy]
+  
   root 'restaurants#index'
   
   namespace :admin, path: "c7edcc" do
