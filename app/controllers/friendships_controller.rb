@@ -41,3 +41,9 @@ class FriendshipsController < ApplicationController
   end
   
 end
+新增 Active Record Models (e.g. rails generate model)
+可以遷移資料庫並留下紀錄 (Migration)
+對 Model 的資料進行新增、讀取、修改、刪除等操作
+在資料存入資料庫前進行資料驗證
+在資料 CRUD 週期中呼叫特定程式碼
+設定並操作 Models 間的關聯 (e.g. has_many, belongs_to)
