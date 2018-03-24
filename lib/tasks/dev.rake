@@ -15,7 +15,6 @@ namespace :dev do
     puts "have create fake restaurants"
     puts "now you have #{Restaurant.count} restaurant data"
 
-
     # generate 20 users
     20.times do |i|
       user_name = "user" + i.to_s
@@ -26,7 +25,6 @@ namespace :dev do
     end
     puts "have created fake users"
     puts "now you have #{User.count} users data"
-
 
     # generate 3 comments for every restaurant
     Restaurant.all.each do |restaurant|
